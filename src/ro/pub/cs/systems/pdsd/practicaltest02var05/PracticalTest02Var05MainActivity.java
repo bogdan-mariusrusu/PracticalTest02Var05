@@ -27,17 +27,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 public class PracticalTest02Var05MainActivity extends Activity {
 	
-	EditText serverPortEditText = (EditText) findViewById(R.id.server_port_edit_text); 
+	EditText serverPortEditText;
+	EditText commandEditText;
+	TextView resultTextView;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practical_test02_var05_main);
+        
+        serverPortEditText = (EditText) findViewById(R.id.server_port_edit_text);
+        commandEditText = (EditText) findViewById(R.id.client_command);
+        resultTextView = (TextView) findViewById(R.id.result);
     }
 
 
@@ -307,7 +314,7 @@ public class PracticalTest02Var05MainActivity extends Activity {
 		      Log.e(Constants.TAG, "[MAIN ACTIVITY] There is no server to connect to!");
 		      return;
 		    }
-		    resulltTextView.setText(Constants.EMPTY_STRING);
+		    resultTextView.setText("");
 		    clientThread = new ClientThread(
 		      "localhost", 
 		    clientThread.start();
